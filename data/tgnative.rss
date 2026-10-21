@@ -1,0 +1,270 @@
+NAME TGNA
+
+#include <eikon.rh>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.hrh>
+#include <appinfo.rh>
+#include "../src/tgnative.hrh"
+
+RESOURCE RSS_SIGNATURE {}
+RESOURCE TBUF { buf = ""; }
+
+RESOURCE EIK_APP_INFO
+    {
+    menubar = r_tg_menubar;
+    cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+    }
+
+RESOURCE MENU_BAR r_tg_menubar
+    {
+    titles = { MENU_TITLE { menu_pane = r_tg_menu; } };
+    }
+
+RESOURCE MENU_PANE r_tg_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = ETgCmdOpen; txt = "Open"; },
+        MENU_ITEM { command = ETgCmdChat; txt = "Chat"; cascade = r_tg_chat_menu; },
+        MENU_ITEM { command = ETgCmdReply; txt = "Reply"; },
+        MENU_ITEM { command = ETgCmdReact; txt = "React"; },
+        MENU_ITEM { command = ETgCmdAttach; txt = "Attach"; cascade = r_tg_attach_menu; },
+        MENU_ITEM { command = ETgCmdMessage; txt = "Message"; cascade = r_tg_message_menu; },
+        MENU_ITEM { command = ETgCmdPinned; txt = "Pinned message"; },
+        MENU_ITEM { command = ETgCmdInfo; txt = "Info"; },
+        MENU_ITEM { command = ETgCmdContacts; txt = "Contacts"; },
+        MENU_ITEM { command = ETgCmdFindUser; txt = "Find by username"; },
+        MENU_ITEM { command = ETgCmdOlder; txt = "Load older messages"; },
+        MENU_ITEM { command = ETgCmdText; txt = "Message text"; },
+        MENU_ITEM { command = ETgCmdZoomIn; txt = "Zoom in"; },
+        MENU_ITEM { command = ETgCmdZoomOut; txt = "Zoom out"; },
+        MENU_ITEM { command = ETgCmdSave; txt = "Save to memory card"; },
+        MENU_ITEM { command = ETgCmdRefresh; txt = "Refresh"; },
+        MENU_ITEM { command = ETgCmdLoginQr; txt = "Log in with QR code"; },
+        MENU_ITEM { command = ETgCmdLogin; txt = "Log in with phone number"; },
+        MENU_ITEM { command = ETgCmdLogout; txt = "Log out"; },
+        MENU_ITEM { command = ETgCmdShortcuts; txt = "Shortcuts"; },
+        MENU_ITEM { command = ETgCmdLanguage; txt = "Language"; },
+        MENU_ITEM { command = ETgCmdDebug; txt = "Diagnostics"; },
+        MENU_ITEM { command = ETgCmdExit; txt = "Exit"; }
+        };
+    }
+
+RESOURCE DIALOG r_tg_number_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EDataLayout;
+                label = "";
+                control = EDWIN
+                    {
+                    width = 20;
+                    maxlength = 20;
+                    lines = 1;
+                    avkon_flags = EAknEditorFlagNoT9;
+                    default_input_mode = EAknEditorNumericInputMode;
+                    allowed_input_modes = EAknEditorNumericInputMode | EAknEditorTextInputMode;
+                    special_character_table = R_AVKON_SPECIAL_CHARACTER_TABLE_DIALOG;
+                    };
+                };
+            }
+        };
+    }
+
+RESOURCE DIALOG r_tg_prose_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EDataLayout;
+                label = "";
+                control = EDWIN
+                    {
+                    width = 40;
+                    maxlength = 1000;
+                    lines = 4;
+                    default_case = EAknEditorTextCase;
+                    allowed_case_modes = EAknEditorAllCaseModes;
+                    };
+                };
+            }
+        };
+    }
+
+RESOURCE AVKON_MULTISELECTION_LIST_QUERY r_tg_photos_query
+    {
+    items =
+        {
+        AVKON_MULTISELECTION_LIST_QUERY_DLG_LINE
+            {
+            control = AVKON_LIST_QUERY_CONTROL
+                {
+                listtype = EAknCtSingleGraphicPopupMenuListBox;
+                listbox = AVKON_MULTISELECTION_LIST_QUERY_LIST
+                    {
+                    };
+                heading = "Photos";
+                };
+            }
+        };
+    }
+
+RESOURCE DIALOG r_tg_yesno_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_CONFIRMATION_QUERY
+                {
+                layout = EConfirmationQueryLayout;
+                label = "";
+                };
+            }
+        };
+    }
+
+RESOURCE DIALOG r_tg_ok_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_CONFIRMATION_QUERY
+                {
+                layout = EConfirmationQueryLayout;
+                label = "";
+                };
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_tg_chat_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = ETgCmdPin; txt = "Pin"; },
+        MENU_ITEM { command = ETgCmdUnpin; txt = "Unpin"; },
+        MENU_ITEM { command = ETgCmdMute; txt = "Mute"; },
+        MENU_ITEM { command = ETgCmdUnmute; txt = "Unmute"; },
+        MENU_ITEM { command = ETgCmdMarkRead; txt = "Mark as read"; },
+        MENU_ITEM { command = ETgCmdMarkUnread; txt = "Mark as unread"; },
+        MENU_ITEM { command = ETgCmdArchive; txt = "Archive chat"; },
+        MENU_ITEM { command = ETgCmdUnarchive; txt = "Unarchive chat"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_tg_message_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = ETgCmdReplyTo; txt = "Reply to"; },
+        MENU_ITEM { command = ETgCmdOpenLink; txt = "Open link"; },
+        MENU_ITEM { command = ETgCmdCopy; txt = "Copy text"; },
+        MENU_ITEM { command = ETgCmdEdit; txt = "Edit"; },
+        MENU_ITEM { command = ETgCmdDelete; txt = "Delete"; },
+        MENU_ITEM { command = ETgCmdForward; txt = "Forward"; },
+        MENU_ITEM { command = ETgCmdPlay; txt = "Open in player"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_tg_attach_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = ETgCmdSendPhoto; txt = "Photo"; },
+        MENU_ITEM { command = ETgCmdSendFile; txt = "File"; },
+        MENU_ITEM { command = ETgCmdCamera; txt = "Camera"; }
+        };
+    }
+
+RESOURCE CBA r_tg_softkeys_capture_back
+    {
+    buttons =
+        {
+        CBA_BUTTON { id = EAknSoftkeyOk; txt = "Capture"; },
+        CBA_BUTTON { id = EAknSoftkeyBack; txt = "Back"; }
+        };
+    }
+
+RESOURCE DIALOG r_tg_password_query
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_DATA_QUERY
+                {
+                layout = ECodeLayout;
+                label = "";
+                control = SECRETED { num_letters = 64; };
+                };
+            }
+        };
+    }
+
+RESOURCE CBA r_tg_softkeys_reply_back
+    {
+    buttons =
+        {
+        CBA_BUTTON { id = EAknSoftkeyOk; txt = "Reply"; },
+        CBA_BUTTON { id = EAknSoftkeyCancel; txt = "Back"; }
+        };
+    }
+
+RESOURCE CBA r_tg_softkeys_photo_back
+    {
+    buttons =
+        {
+        CBA_BUTTON { id = EAknSoftkeyOk; txt = "Photo"; },
+        CBA_BUTTON { id = EAknSoftkeyCancel; txt = "Back"; }
+        };
+    }
+
+RESOURCE CBA r_tg_softkeys_preview_back
+    {
+    buttons =
+        {
+        CBA_BUTTON { id = EAknSoftkeyOk; txt = "Preview"; },
+        CBA_BUTTON { id = EAknSoftkeyCancel; txt = "Back"; }
+        };
+    }
+
+RESOURCE LOCALISABLE_APP_INFO r_tg_localisable_app_info
+    {
+    short_caption = "Telegram";
+    caption_and_icon = CAPTION_AND_ICON_INFO
+        {
+        caption = "Telegram";
+        number_of_icons = 1;
+        icon_file = "\\resource\\apps\\tgnative_aif.mif";
+        };
+    }

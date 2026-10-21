@@ -1,0 +1,7 @@
+#ifndef TG_CONFIG_H
+#define TG_CONFIG_H
+
+#define TG_API_ID 0
+#define TG_API_HASH ""
+
+#endif

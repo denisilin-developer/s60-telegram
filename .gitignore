@@ -1,0 +1,7 @@
+build/
+group/.gcce-compiler*
+src/tg_config.h
+tools/errrd/
+*.sis
+*.sisx
+.DS_Store

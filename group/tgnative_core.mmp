@@ -1,0 +1,36 @@
+TARGET          tgnative_core.lib
+TARGETTYPE      lib
+UID             0 0
+
+USERINCLUDE     ../core ../../common/net
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/everest/include
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/include
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/builtin/include
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/p256-m
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/pqcp/include
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/everest/include/tf-psa-crypto/private/everest
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/everest/include/tf-psa-crypto/private/everest/kremlib
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/core
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/p256-m/p256-m
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/dispatch
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/extras
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/platform
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/utilities
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/builtin/src
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/pqcp/src
+SYSTEMINCLUDE   ../../common/mbedtls/tf-psa-crypto/drivers/pqcp/mldsa-native/mldsa
+SYSTEMINCLUDE   ../../common/mbedtls/include
+SYSTEMINCLUDE   ../../common/mbedtls/library
+SYSTEMINCLUDE   ../../common/mbedtls-symbian
+SYSTEMINCLUDE   /epoc32/include/stdapis /epoc32/include
+
+SOURCEPATH      ../core
+SOURCE          tg_buf.c
+SOURCE          tg_client.c
+SOURCE          tg_crypto.c
+SOURCE          tg_keys_gen.c
+SOURCE          tg_mtproto.c
+SOURCE          tg_net.c
+SOURCE          tg_qr.c
+SOURCE          tg_schema_gen.c
+SOURCE          tg_tl.c

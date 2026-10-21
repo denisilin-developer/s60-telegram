@@ -1,0 +1,49 @@
+#ifndef TGNATIVE_HRH
+#define TGNATIVE_HRH
+
+enum TTgCommand
+    {
+    ETgCmdOpen = 0x7401,
+    ETgCmdReply,
+    ETgCmdRefresh,
+    ETgCmdLogin,
+    ETgCmdLoginQr,
+    ETgCmdLogout,
+    ETgCmdDebug,
+    ETgCmdText,
+    ETgCmdZoomIn,
+    ETgCmdZoomOut,
+    ETgCmdSave,
+    ETgCmdSendPhoto,
+    ETgCmdSendFile,
+    ETgCmdAttach,
+    ETgCmdCamera,
+    ETgCmdMessage,
+    ETgCmdReplyTo,
+    ETgCmdCopy,
+    ETgCmdEdit,
+    ETgCmdDelete,
+    ETgCmdForward,
+    ETgCmdReact,
+    ETgCmdPinned,
+    ETgCmdOlder,
+    ETgCmdChat,
+    ETgCmdPin,
+    ETgCmdUnpin,
+    ETgCmdMute,
+    ETgCmdUnmute,
+    ETgCmdMarkRead,
+    ETgCmdMarkUnread,
+    ETgCmdArchive,
+    ETgCmdUnarchive,
+    ETgCmdInfo,
+    ETgCmdContacts,
+    ETgCmdFindUser,
+    ETgCmdPlay,
+    ETgCmdLanguage,
+    ETgCmdExit,
+    ETgCmdOpenLink,
+    ETgCmdShortcuts
+    };
+
+#endif

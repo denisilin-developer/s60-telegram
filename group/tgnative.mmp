@@ -1,0 +1,33 @@
+TARGET          tgnative.exe
+TARGETTYPE      exe
+UID             0x100039CE 0xE7E1E001
+SECUREID        0xE7E1E001
+VENDORID        0
+CAPABILITY      NetworkServices UserEnvironment
+EPOCSTACKSIZE   0x14000
+EPOCHEAPSIZE    0x10000 0x2000000
+
+USERINCLUDE     ../src ../core ../../common/net
+SYSTEMINCLUDE   /epoc32/include /epoc32/include/mw /epoc32/include/platform
+SYSTEMINCLUDE   /epoc32/include/platform/mw /epoc32/include/stdapis
+
+SOURCEPATH      ../data
+START RESOURCE  tgnative.rss
+HEADER
+TARGETPATH      /resource/apps
+END
+START RESOURCE  tgnative_reg.rss
+TARGETPATH      /private/10003a3f/import/apps
+END
+
+SOURCEPATH      ../src
+SOURCE          tgnative.cpp
+SOURCE          tg_worker.cpp
+
+STATICLIBRARY   tgnative_core.lib rsym_net.lib rsym_mbedtls.lib
+LIBRARY         euser.lib apparc.lib apgrfx.lib ws32.lib cone.lib eikcore.lib avkon.lib
+LIBRARY         eikdlg.lib eikctl.lib eikcoctl.lib efsrv.lib gdi.lib bafl.lib
+LIBRARY         etext.lib form.lib fbscli.lib bitgdi.lib egul.lib imageconversion.lib
+LIBRARY         esock.lib insock.lib random.lib charconv.lib
+LIBRARY         aknnotify.lib hwrmvibraclient.lib commondialogs.lib ecam.lib commonui.lib apmime.lib aknskins.lib
+LIBRARY         libc.lib libm.lib ezlib.lib

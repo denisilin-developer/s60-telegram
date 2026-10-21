@@ -1,0 +1,36 @@
+&EN
+#{"Telegram"},(0xE7E1E001),0,19,2
+%{"tgnative"}
+:"tgnative"
+
+[0x101F7961],0,0,0,{"S60ProductID"}
+
+@"..\..\..\..\downloads\s60v31\pips.sis",(0x20013851)
+
+"$(EPOCROOT)epoc32\release\gcce\urel\tgnative.exe"                      -"!:\sys\bin\tgnative.exe"
+"$(EPOCROOT)epoc32\data\z\resource\apps\tgnative.rsc"                   -"!:\resource\apps\tgnative.rsc"
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\import\apps\tgnative_reg.rsc" -"!:\private\10003a3f\import\apps\tgnative_reg.rsc"
+"..\..\build\icon\tgnative_aif.mif"                                     -"!:\resource\apps\tgnative_aif.mif"
+"..\..\data\emoji\LICENSE" -"!:\private\E7E1E001\emoji\LICENSE"
+"..\..\data\emoji\emoji_u1f389.png" -"!:\private\E7E1E001\emoji\emoji_u1f389.png"
+"..\..\data\emoji\emoji_u1f44c.png" -"!:\private\E7E1E001\emoji\emoji_u1f44c.png"
+"..\..\data\emoji\emoji_u1f44d.png" -"!:\private\E7E1E001\emoji\emoji_u1f44d.png"
+"..\..\data\emoji\emoji_u1f44e.png" -"!:\private\E7E1E001\emoji\emoji_u1f44e.png"
+"..\..\data\emoji\emoji_u1f44f.png" -"!:\private\E7E1E001\emoji\emoji_u1f44f.png"
+"..\..\data\emoji\emoji_u1f4a9.png" -"!:\private\E7E1E001\emoji\emoji_u1f4a9.png"
+"..\..\data\emoji\emoji_u1f525.png" -"!:\private\E7E1E001\emoji\emoji_u1f525.png"
+"..\..\data\emoji\emoji_u1f601.png" -"!:\private\E7E1E001\emoji\emoji_u1f601.png"
+"..\..\data\emoji\emoji_u1f602.png" -"!:\private\E7E1E001\emoji\emoji_u1f602.png"
+"..\..\data\emoji\emoji_u1f60d.png" -"!:\private\E7E1E001\emoji\emoji_u1f60d.png"
+"..\..\data\emoji\emoji_u1f622.png" -"!:\private\E7E1E001\emoji\emoji_u1f622.png"
+"..\..\data\emoji\emoji_u1f62d.png" -"!:\private\E7E1E001\emoji\emoji_u1f62d.png"
+"..\..\data\emoji\emoji_u1f62e.png" -"!:\private\E7E1E001\emoji\emoji_u1f62e.png"
+"..\..\data\emoji\emoji_u1f631.png" -"!:\private\E7E1E001\emoji\emoji_u1f631.png"
+"..\..\data\emoji\emoji_u1f64f.png" -"!:\private\E7E1E001\emoji\emoji_u1f64f.png"
+"..\..\data\emoji\emoji_u1f914.png" -"!:\private\E7E1E001\emoji\emoji_u1f914.png"
+"..\..\data\emoji\emoji_u1f929.png" -"!:\private\E7E1E001\emoji\emoji_u1f929.png"
+"..\..\data\emoji\emoji_u1f92c.png" -"!:\private\E7E1E001\emoji\emoji_u1f92c.png"
+"..\..\data\emoji\emoji_u1f92e.png" -"!:\private\E7E1E001\emoji\emoji_u1f92e.png"
+"..\..\data\emoji\emoji_u1f92f.png" -"!:\private\E7E1E001\emoji\emoji_u1f92f.png"
+"..\..\data\emoji\emoji_u1f970.png" -"!:\private\E7E1E001\emoji\emoji_u1f970.png"
+"..\..\data\emoji\emoji_u2764.png" -"!:\private\E7E1E001\emoji\emoji_u2764.png"
