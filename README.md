@@ -2,6 +2,14 @@
 
 A native Telegram client for Nokia S60 3rd Edition FP2 phones, written in Symbian C++ with its own MTProto implementation. It's built and tested on a Nokia E72 (320×240, QWERTY).
 
+| Chats | Conversation |
+|---|---|
+| <img src="docs/chats.png" width="320"> | <img src="docs/chat.png" width="320"> |
+| **Options** | **Chat info** |
+| <img src="docs/menu.png" width="320"> | <img src="docs/info.png" width="320"> |
+
+Names, avatars, photos and messages in the screenshots are replaced with made-up ones.
+
 ## Features
 
 - **Login:** QR code login (scan it with Telegram on another device), plus two-step verification passwords (SRP). Phone-number login is there too, but codes may not arrive for new API ids.
